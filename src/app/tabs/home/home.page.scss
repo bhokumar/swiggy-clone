@@ -1,0 +1,41 @@
+ion-header {
+    ion-icon {
+        font-size: 1rem;
+    }
+}
+
+// Path: src/app/tabs/home/home.page.html
+div {
+    transform: translateY(10%);
+    margin-top: 10px;
+    height: 30vh;
+    width: 94%;
+    margin: auto;
+   swiper-container {
+    --swiper-navigation-color: var(--ion-color-primary);
+        height: 28vh;
+        img {
+            height: 20vh;
+            width: 100%;
+            border-radius: 5px;
+            // box-shadow: -1px 11px 13px -6px rgb(87, 86, 86);
+        } 
+    }
+}
+
+.borderBottom {
+    border-bottom: 1.5vh solid var(--ion-color-light);
+}
+
+ion-label {
+    font-size: .9rem;
+    font-weight: bold;
+    color: var(--ion-color-dark);
+    h4 {
+        font-weight: bold !important;
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 0.7rem;
+    }
+}
