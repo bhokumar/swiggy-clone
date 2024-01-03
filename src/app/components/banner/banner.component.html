@@ -10,14 +10,8 @@
       [autoplay]="true"
       [spaceBetween]="20"
       [pagination]="{ clickable: true, dynamicBullets: true }">
-      <swiper-slide>
-        <img src="assets/imgs/1.jpg" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="assets/imgs/2.jpg" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="assets/imgs/3.jpg" />
+      <swiper-slide *ngFor="let image of bannerImages">
+        <img [src]="image?.banner" />
       </swiper-slide>
     </swiper-container>
   </div>

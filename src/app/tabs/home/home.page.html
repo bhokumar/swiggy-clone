@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <app-banner></app-banner>
+  <app-banner [bannerImages]="banners"></app-banner>
   <ion-list>
     <ion-list-header class="ion-margin-bottom">
       <ion-label>
@@ -16,30 +16,6 @@
         <p>Discover unique tastes</p>
       </ion-label>
     </ion-list-header>
-    <ion-item lines="none">
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/1.jpg" />
-      </ion-thumbnail>
-      <ion-label>
-        <h4>Stay fit</h4>
-        <ion-text color="medium">
-         <p class="pStyle">
-            Italian Mexican
-          </p>
-          <ion-text color="dark">
-            <span class="spanStyle">
-              <ion-icon name="star"></ion-icon>
-              5 .
-            </span>
-            25 mins . ₹1000 for two
-          </ion-text>
-          <ion-text color="tertiary">
-            <p class="distance">
-              2.59 km away
-            </p>
-          </ion-text>
-        </ion-text>
-      </ion-label>
-    </ion-item>
+    <app-restaurant *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-restaurant>
   </ion-list>
 </ion-content>
