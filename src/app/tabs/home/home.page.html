@@ -8,31 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <div class="borderBottom">
-      <swiper-container 
-        [modules]="swiperModules" 
-        [slidesPerView]="1.2" 
-        [loop]="false"
-        [initilSlide]="0"
-        [centeredSlides]="true"
-        [keyboard]="true"
-        [autoplay]="true"
-        [spaceBetween]="20"
-        [pagination]="{ clickable: true, dynamicBullets: true }">
-        <swiper-slide>
-          <img src="assets/imgs/1.jpg" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="assets/imgs/2.jpg" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="assets/imgs/3.jpg" />
-        </swiper-slide>
-      </swiper-container>
-    </div>
-  </ion-row>
-
+  <app-banner></app-banner>
   <ion-list>
     <ion-list-header class="ion-margin-bottom">
       <ion-label>
@@ -50,11 +26,13 @@
          <p class="pStyle">
             Italian Mexican
           </p>
-          <span class="spanStyle">
-            <ion-icon name="star"></ion-icon>
-            5 .
-          </span>
-          25 mins . ₹1000 for two
+          <ion-text color="dark">
+            <span class="spanStyle">
+              <ion-icon name="star"></ion-icon>
+              5 .
+            </span>
+            25 mins . ₹1000 for two
+          </ion-text>
           <ion-text color="tertiary">
             <p class="distance">
               2.59 km away

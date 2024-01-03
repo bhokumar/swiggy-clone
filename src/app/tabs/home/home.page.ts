@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,7 @@ import { IonicSlides } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  swiperModules = [IonicSlides];
+
   constructor() { }
 
   ngOnInit() {

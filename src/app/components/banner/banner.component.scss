@@ -1,0 +1,17 @@
+div {
+    transform: translateY(10%);
+    margin-top: 10px;
+    height: 30vh;
+    width: 94%;
+    margin: auto;
+   swiper-container {
+    --swiper-navigation-color: var(--ion-color-primary);
+        height: 28vh;
+        img {
+            height: 20vh;
+            width: 100%;
+            border-radius: 5px;
+            // box-shadow: -1px 11px 13px -6px rgb(87, 86, 86);
+        } 
+    }
+}

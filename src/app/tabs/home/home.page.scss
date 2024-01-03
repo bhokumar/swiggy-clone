@@ -5,23 +5,7 @@ ion-header {
 }
 
 // Path: src/app/tabs/home/home.page.html
-div {
-    transform: translateY(10%);
-    margin-top: 10px;
-    height: 30vh;
-    width: 94%;
-    margin: auto;
-   swiper-container {
-    --swiper-navigation-color: var(--ion-color-primary);
-        height: 28vh;
-        img {
-            height: 20vh;
-            width: 100%;
-            border-radius: 5px;
-            // box-shadow: -1px 11px 13px -6px rgb(87, 86, 86);
-        } 
-    }
-}
+
 
 .borderBottom {
     border-bottom: 1.5vh solid var(--ion-color-light);
@@ -38,4 +22,30 @@ ion-label {
     p {
         font-size: 0.7rem;
     }
+}
+
+ion-item {
+    font-size: 0.8rem;
+    ion-thumbnail {
+        height: 16vh;
+        width: 13vh;
+        img: {
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    h4 {
+        font-size: 1rem;
+    }
+}
+
+.distance {
+    font-size: 0.8rem;
+    padding-top: 0.2vh;
+}
+
+.pStyle {
+    font-size: 0.82rem !important;
+    padding-bottom: 0.5vh;
 }
