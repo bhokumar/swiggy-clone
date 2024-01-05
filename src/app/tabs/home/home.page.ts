@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
         {
           cover: 'assets/imgs/1.jpg',
           name: 'Stay fit',
-          short_name: 'Stay fit',
+          short_name: 'stayfit',
           cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
           rating: 4.5,
           delivery_time: 30,
@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
         {
           cover: 'assets/imgs/2.jpg',
           name: 'Stay fit1',
-          short_name: 'Stay fit',
+          short_name: 'stayfit2',
           cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
           rating: 4.5,
           delivery_time: 20,
@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
         {
           cover: 'assets/imgs/3.jpg',
           name: 'Stay fit1',
-          short_name: 'Stay fit',
+          short_name: 'stayfit3',
           cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
           rating: 4.5,
           delivery_time: 20,

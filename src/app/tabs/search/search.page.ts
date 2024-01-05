@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +7,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPage implements OnInit {
 
+  @ViewChild('searchInput') sInput: any;
+
+  allRestaurants: any[] = [
+    {
+      cover: 'assets/imgs/1.jpg',
+      name: 'Stay fit',
+      short_name: 'stayfit',
+      cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
+      rating: 4.5,
+      delivery_time: 30,
+      delivery_fee: 0,
+      distance: 2.5,
+      price: 100
+    },
+    {
+      cover: 'assets/imgs/2.jpg',
+      name: 'Stay fit1',
+      short_name: 'stayfit2',
+      cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
+      rating: 4.5,
+      delivery_time: 20,
+      delivery_fee: 0,
+      distance: 2.5,
+      price: 100
+    },
+    {
+      cover: 'assets/imgs/3.jpg',
+      name: 'Stay fit1',
+      short_name: 'stayfit3',
+      cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
+      rating: 4.5,
+      delivery_time: 20,
+      delivery_fee: 0,
+      distance: 2.5,
+      price: 100
+    }
+  ];
+
+  restaurants: any[] = [];
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.sInput.setFocus();
+    }, 500);
+  }
+
+  onSearchChange(event: any) {
+    console.log(event.detail.value);
   }
 
 }
