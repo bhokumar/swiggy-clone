@@ -7,6 +7,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class SearchPage implements OnInit {
 
+  model: any = {
+    icon: 'search-outline',
+    title: 'No Restaurant Record Found',
+  };
   @ViewChild('searchInput') sInput: any;
   query: string = '';
   isLoading: boolean = false;
@@ -52,14 +56,20 @@ export class SearchPage implements OnInit {
     }, 500);
   }
 
-  onSearchChange(event: any) {
+ async onSearchChange(event: any) {
     console.log(event.detail.value);
     this.query = event.detail.value.toLowerCase();
 
+    this.restaurants = [];
     if (this.query.length > 0) {
-      this.restaurants = this.allRestaurants.filter((restaurant) => { 
-        return restaurant.short_name.includes(this.query);
-      });
+      this.isLoading = true;
+      setTimeout(async () => {
+        this.restaurants = await this.allRestaurants.filter((restaurant) => { 
+          return restaurant.short_name.includes(this.query);
+        });
+        this.isLoading = false;
+      }, 3000);
+      
       console.log(this.restaurants);
     }
   }
