@@ -10,6 +10,7 @@ import { HomePage } from './home.page';
 import { BannerComponent } from 'src/app/components/banner/banner.component';
 import { RestaurantComponent } from 'src/app/components/restaurant/restaurant.component';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { SearchPage } from '../search/search.page';
 
 @NgModule({
   imports: [

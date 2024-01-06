@@ -12,5 +12,16 @@
 </ion-header>
 
 <ion-content >
-  
+  <app-loading-restaurant *ngIf="isLoading"></app-loading-restaurant>
+  <ion-list *ngIf="!isLoading">
+    <ion-list-header>
+      <ion-label>
+        <h4>Search items for {{query}}</h4>
+      </ion-label>
+    </ion-list-header>
+    <app-restaurant 
+      *ngFor="let restaurant of restaurants" 
+      [restaurant]="restaurant">
+    </app-restaurant>
+  </ion-list>
 </ion-content>
