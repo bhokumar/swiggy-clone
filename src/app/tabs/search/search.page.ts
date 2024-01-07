@@ -16,6 +16,7 @@ export class SearchPage implements OnInit {
   isLoading: boolean = false;
   allRestaurants: any[] = [
     {
+      uid: 'fnwrfqinrwqniwqnrwq',
       cover: 'assets/imgs/1.jpg',
       name: 'Stay fit1',
       short_name: 'stayfit1',
@@ -26,6 +27,7 @@ export class SearchPage implements OnInit {
       price: 100
     },
     {
+      uid: 'fnwrfqinrwqniwqnrer',
       cover: 'assets/imgs/2.jpg',
       name: 'Stay fit2',
       short_name: 'stayfit2',
@@ -36,6 +38,7 @@ export class SearchPage implements OnInit {
       price: 100
     },
     {
+      uid: 'fnwrfqinrwqniwqnrfg',
       cover: 'assets/imgs/3.jpg',
       name: 'Stay fit3',
       short_name: 'stayfit3',

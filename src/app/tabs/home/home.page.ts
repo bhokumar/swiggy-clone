@@ -23,36 +23,36 @@ export class HomePage implements OnInit {
   
       this.restaurants = [
         {
+          uid: 'fnwrfqinrwqniwqnrwq',
           cover: 'assets/imgs/1.jpg',
-          name: 'Stay fit',
-          short_name: 'stayfit',
+          name: 'Stay fit1',
+          short_name: 'stayfit1',
           cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
           rating: 4.5,
           delivery_time: 30,
           delivery_fee: 0,
-          distance: 2.5,
           price: 100
         },
         {
+          uid: 'fnwrfqinrwqniwqnrer',
           cover: 'assets/imgs/2.jpg',
-          name: 'Stay fit1',
+          name: 'Stay fit2',
           short_name: 'stayfit2',
           cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
           rating: 4.5,
           delivery_time: 20,
           delivery_fee: 0,
-          distance: 2.5,
           price: 100
         },
         {
+          uid: 'fnwrfqinrwqniwqnrfg',
           cover: 'assets/imgs/3.jpg',
-          name: 'Stay fit1',
+          name: 'Stay fit3',
           short_name: 'stayfit3',
           cuisines: ['Fast Food', 'Burgers', 'Desserts', 'Beverages'],
           rating: 4.5,
           delivery_time: 20,
           delivery_fee: 0,
-          distance: 2.5,
           price: 100
         }
       ];
