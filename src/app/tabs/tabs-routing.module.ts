@@ -31,7 +31,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'resturants/:restaurantId',
+    path: 'restaurants/:restaurantId',
     loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
   }
 ];
