@@ -11,7 +11,7 @@ export class LoadingRestaurantComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.dummy  = [1,2,3,4,5,6,7,8,9,10];
+    this.dummy  = [1, 2, 3, 4, 5, 6, 7,  8,9, 10];
   }
 
 }
