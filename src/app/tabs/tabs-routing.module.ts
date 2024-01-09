@@ -9,23 +9,23 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       },
       {
-        path: 'home',
+        path: 'tabs/home',
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },
       {
-        path: 'account',
+        path: 'tabs/account',
         loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
       },
       {
-        path: 'search',
+        path: 'tabs/search',
         loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
       },
       {
-        path: 'cart',
+        path: 'tabs/cart',
         loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
       }
     ]
