@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { LoadingRestaurantComponent } from './loading-restaurant/loading-restaurant.component';
 import { EmptyScreenComponent } from './empty-screen/empty-screen.component';
@@ -12,8 +11,7 @@ import { EmptyScreenComponent } from './empty-screen/empty-screen.component';
   declarations: [RestaurantComponent, LoadingRestaurantComponent, EmptyScreenComponent],
   imports: [
     CommonModule,
-    IonicModule,
-    RouterModule
+    IonicModule
   ],
   exports: [RestaurantComponent, LoadingRestaurantComponent, EmptyScreenComponent]
 })
