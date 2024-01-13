@@ -1,0 +1,22 @@
+h1 {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.dashedBorderBottom {
+    border-bottom: 1px dashed var(--ion-color-medium);
+    padding: 1vh;
+    margin-bottom: 1vh;
+}
+
+.ion-padding {
+    padding: 1vh;
+}
+
+.veg {
+    align-items: center;
+}
+
+.vegLabel {
+    margin-right: 1vw;
+}
