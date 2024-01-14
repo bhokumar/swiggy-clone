@@ -66,11 +66,28 @@
     </ion-toggle>
   </ion-row>
 
-  <ion-list lines="none">
-    <ion-list-header>
+  <ion-list lines="none" *ngFor="let category of categories">
+    <ion-list-header >
       <ion-label>
-        <h2>Recommended</h2>
+        <h3>{{category.name}}</h3>
       </ion-label>
     </ion-list-header>
+    <ng-container *ngFor="let item of allItems; let i = index">
+      <ion-item *ngIf="category.id === item.category_id">
+        <ion-thumbnail slot="start">
+          <img [src]="item?.cover ? item.cover : 'assets/imgs/1.jpg'"/>
+        </ion-thumbnail>
+        <ion-label>
+          <h4>{{item?.name}}</h4>
+          <p class="ion-text-wrap">{{item?.desc}}</p>
+          <ion-text>
+            <p>{{item.price}}</p>
+          </ion-text>
+        </ion-label>
+        <ion-row>
+          <ion-text >Add</ion-text>
+        </ion-row>
+      </ion-item>
+    </ng-container>
   </ion-list>
 </ion-content>
