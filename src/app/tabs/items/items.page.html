@@ -84,10 +84,30 @@
             <p>{{item.price}}</p>
           </ion-text>
         </ion-label>
+        <!-- <ion-row>
+          <ion-text class="ion-padding-horizontal" color="success">Add</ion-text>
+        </ion-row> -->
         <ion-row>
-          <ion-text >Add</ion-text>
+          <ion-icon color="success" name="remove-outline"></ion-icon>
+          <ion-text class="ion-text-center quantity" color="success">1</ion-text>
+          <ion-icon color="success" name="add-outline"></ion-icon>
         </ion-row>
       </ion-item>
     </ng-container>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6">
+        <ion-text color="success">
+          <h3>1Item | ₹40 </h3>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="success" expand="block">Add to Cart</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>  
+
