@@ -13,6 +13,11 @@ export class ItemsPage implements OnInit {
   data: any = {};
   items: any[] = [];
   veg: boolean = false;
+  cartData: CartData = {
+    items: [],
+    total: 0,
+    totalItems: 0
+  };
   restaurants = [
     {
       uid: 'fnwrfqinrwqniwqnrwq',
@@ -56,12 +61,12 @@ export class ItemsPage implements OnInit {
     {
       id: "e00",
       name: "Italian",
-      uid: "12wefdss"
+      uid: "fnwrfqinrwqniwqnrwq"
     },
     {
       id: "e0",
       name: "Mexican",
-      uid: "12wefdss"
+      uid: "fnwrfqinrwqniwqnrwq"
     },
   ]; 
 
@@ -72,10 +77,11 @@ export class ItemsPage implements OnInit {
         desc: "Great in taste",
         id: "i1",
         name: "Pizza",
+        quantity:0,
         price: 120,
         rating: 0,
         status: true,
-        uid: "12wefdss",
+        uid: "fnwrfqinrwqniwqnrwq",
         variation: false,
         veg: false
     },
@@ -85,10 +91,11 @@ export class ItemsPage implements OnInit {
         desc: "Great in taste",
         id: "i2",
         name: "Caprese Salad",
+        quantity:0,
         price: 200,
         rating: 0,
         status: true,
-        uid: "12wefdss",
+        uid: "fnwrfqinrwqniwqnrer",
         variation: false,
         veg: true
     },
@@ -98,10 +105,11 @@ export class ItemsPage implements OnInit {
         desc: "Great in taste",
         id: "i3",
         name: "Pasta",
+        quantity:0,
         price: 150.50,
         rating: 0,
         status: true,
-        uid: "12wefdss",
+        uid: "fnwrfqinrwqniwqnrwq",
         variation: false,
         veg: false
     },
@@ -128,8 +136,15 @@ export class ItemsPage implements OnInit {
 
   getItems() {
     this.data = {};
+    this.cartData = {
+      items: [],
+      total: 0,
+      totalItems: 0
+    };
     const filteredItems = this.restaurants.filter(x => x.uid === this.id);
     this.data = filteredItems.length > 0 ? filteredItems[0] : {};
+    this.items = this.allItems.filter(x => x.uid === this.id);
+    this.categories = this.categories.filter(x => x.uid === this.id);
     console.log("Data",  this.data);
   }
 
@@ -145,4 +160,58 @@ export class ItemsPage implements OnInit {
     //   this.items = this.data.items;
     // }
   }
+
+  quantityPlus(item: any, index: number) {
+    this.allItems[index].quantity += 1;
+    this.calculate();
+  }
+
+  quantityMinus(item: any, index: number) {
+    this.allItems[index].quantity -= 1;
+    this.calculate();
+  }
+
+  calculate() {
+    this.cartData.items = this.allItems.filter(x => x.quantity > 0);
+    this.cartData.total = this.calculateTotal();
+    this.cartData.totalItems = this.calculateTotalItems();
+  }
+
+  calculateTotal() {
+    let total = 0;
+    this.cartData.items.forEach(item => {
+      total += item.quantity * item.price;
+    });
+    return total;
+  }
+
+  calculateTotalItems() {
+    let total = 0;
+    this.cartData.items.forEach(item => {
+      total += item.quantity;
+    });
+    return total;
+  }
+
+  checkout() {
+    console.log("Checkout");
+  }
+
+  viewCart() {
+    console.log("View Cart");
+    if (this.cartData.totalItems > 0) {
+      this.saveCart();
+      this.navCtrl.navigateForward(['/tabs/cart']);
+    }
+  }
+  saveCart() { 
+    localStorage.setItem('cart', JSON.stringify(this.cartData));
+   }
+}
+
+
+interface CartData {
+  items: any[];
+  total: number;
+  totalItems: number;
 }
