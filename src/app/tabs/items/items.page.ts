@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -13,6 +14,12 @@ export class ItemsPage implements OnInit {
   data: any = {};
   items: any[] = [];
   veg: boolean = false;
+  storeData: CartData = {
+    items: [],
+    restaurant: {},
+    total: 0,
+    totalItems: 0
+  };
   cartData: CartData = {
     items: [],
     restaurant: {},
@@ -135,7 +142,7 @@ export class ItemsPage implements OnInit {
     });
   }
 
-  getItems() {
+ async getItems() {
     this.data = {};
     this.cartData = {
       items: [],
@@ -148,6 +155,22 @@ export class ItemsPage implements OnInit {
     this.items = this.allItems.filter(x => x.uid === this.id);
     this.categories = this.categories.filter(x => x.uid === this.id);
     console.log("Data",  this.data);
+    const cart = await this.getCart();
+    if (cart.value) {
+      this.storeData = JSON.parse(cart.value);
+      console.log("Store Data", this.storeData);
+      if (this.id === this.storeData.restaurant.uid) {
+        this.cartData = this.storeData;
+        this.allItems.forEach(item => {
+          const index = this.cartData.items.findIndex(x => x.id === item.id);
+          if (index > -1) {
+            item.quantity = this.cartData.items[index].quantity;
+          }
+        });
+        this.cartData.totalItems = this.storeData.totalItems;
+        this.cartData.total = this.storeData.total;
+      }
+    }
   }
 
   getCuisines(cuisines: any[]) {
@@ -163,12 +186,12 @@ export class ItemsPage implements OnInit {
     }
   }
 
-  quantityPlus(item: any, index: number) {
+  quantityPlus(index: number) {
     this.allItems[index].quantity += 1;
     this.calculate();
   }
 
-  quantityMinus(item: any, index: number) {
+  quantityMinus(index: number) {
     this.allItems[index].quantity -= 1;
     this.calculate();
   }
@@ -199,17 +222,22 @@ export class ItemsPage implements OnInit {
     console.log("Checkout");
   }
 
-  viewCart() {
+  async viewCart() {
     console.log("View Cart");
     if (this.cartData.totalItems > 0) {
-      this.saveCart();
-      this.navCtrl.navigateForward(['/tabs/cart']);
+      await this.saveCart();
+      // this.navCtrl.navigateForward(['/tabs/cart']);
     }
   }
-  saveCart() { 
+
+  async getCart() {
+    return await Preferences.get({ key: 'cart' });
+  }
+  async saveCart() { 
     try {
       this.cartData.restaurant = this.data;
-      localStorage.setItem('cart', JSON.stringify(this.cartData));
+      const cart = JSON.stringify(this.cartData);
+      await Preferences.set({ key: 'cart', value: cart });
     } catch (error) {
       console.log("Error", error);
     }
