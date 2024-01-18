@@ -15,6 +15,7 @@ export class ItemsPage implements OnInit {
   veg: boolean = false;
   cartData: CartData = {
     items: [],
+    restaurant: {},
     total: 0,
     totalItems: 0
   };
@@ -138,6 +139,7 @@ export class ItemsPage implements OnInit {
     this.data = {};
     this.cartData = {
       items: [],
+      restaurant: {},
       total: 0,
       totalItems: 0
     };
@@ -154,11 +156,11 @@ export class ItemsPage implements OnInit {
 
   vegOnly(event: any) {
     console.log(event.detail.checked);
-    // if (event.detail.checked) {
-    //   this.items = this.data.items.filter(x => x.veg === true);
-    // } else {
-    //   this.items = this.data.items;
-    // }
+    if (event.detail.checked) {
+      this.items = this.allItems.filter(x => x.veg === true);
+    } else {
+      this.items = this.allItems;
+    }
   }
 
   quantityPlus(item: any, index: number) {
@@ -205,13 +207,20 @@ export class ItemsPage implements OnInit {
     }
   }
   saveCart() { 
-    localStorage.setItem('cart', JSON.stringify(this.cartData));
+    try {
+      this.cartData.restaurant = this.data;
+      localStorage.setItem('cart', JSON.stringify(this.cartData));
+    } catch (error) {
+      console.log("Error", error);
+    }
+   
    }
 }
 
 
 interface CartData {
   items: any[];
+  restaurant: any;
   total: number;
   totalItems: number;
 }
