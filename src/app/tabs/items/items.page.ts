@@ -13,6 +13,7 @@ export class ItemsPage implements OnInit {
   id: any;
   data: any = {};
   items: any[] = [];
+  isLoading: boolean = false;
   veg: boolean = false;
   storeData: CartData = {
     items: [],
