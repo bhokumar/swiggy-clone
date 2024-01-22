@@ -144,6 +144,7 @@ export class ItemsPage implements OnInit {
   }
 
  async getItems() {
+    this.isLoading = true
     this.data = {};
     this.cartData = {
       items: [],
@@ -172,6 +173,7 @@ export class ItemsPage implements OnInit {
         this.cartData.total = this.storeData.total;
       }
     }
+    this.isLoading = false;
   }
 
   getCuisines(cuisines: any[]) {
