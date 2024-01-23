@@ -152,28 +152,30 @@ export class ItemsPage implements OnInit {
       total: 0,
       totalItems: 0
     };
-    const filteredItems = this.restaurants.filter(x => x.uid === this.id);
-    this.data = filteredItems.length > 0 ? filteredItems[0] : {};
-    this.items = this.allItems.filter(x => x.uid === this.id);
-    this.categories = this.categories.filter(x => x.uid === this.id);
-    console.log("Data",  this.data);
-    const cart = await this.getCart();
-    if (cart.value) {
-      this.storeData = JSON.parse(cart.value);
-      console.log("Store Data", this.storeData);
-      if (this.id === this.storeData.restaurant.uid) {
-        this.cartData = this.storeData;
-        this.allItems.forEach(item => {
-          const index = this.cartData.items.findIndex(x => x.id === item.id);
-          if (index > -1) {
-            item.quantity = this.cartData.items[index].quantity;
-          }
-        });
-        this.cartData.totalItems = this.storeData.totalItems;
-        this.cartData.total = this.storeData.total;
+    setTimeout(async () => {
+      const filteredItems = this.restaurants.filter(x => x.uid === this.id);
+      this.data = filteredItems.length > 0 ? filteredItems[0] : {};
+      this.items = this.allItems.filter(x => x.uid === this.id);
+      this.categories = this.categories.filter(x => x.uid === this.id);
+      console.log("Data",  this.data);
+      const cart = await this.getCart();
+      if (cart.value) {
+        this.storeData = JSON.parse(cart.value);
+        console.log("Store Data", this.storeData);
+        if (this.id === this.storeData.restaurant.uid) {
+          this.cartData = this.storeData;
+          this.allItems.forEach(item => {
+            const index = this.cartData.items.findIndex(x => x.id === item.id);
+            if (index > -1) {
+              item.quantity = this.cartData.items[index].quantity;
+            }
+          });
+          this.cartData.totalItems = this.storeData.totalItems;
+          this.cartData.total = this.storeData.total;
+        }
       }
-    }
-    this.isLoading = false;
+      this.isLoading = false;
+    }, 3000);
   }
 
   getCuisines(cuisines: any[]) {
