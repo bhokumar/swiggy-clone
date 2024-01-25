@@ -178,9 +178,6 @@ export class ItemsPage implements OnInit {
     }, 3000);
   }
 
-  getCuisines(cuisines: any[]) {
-    return cuisines.join(', ');
-  }
 
   vegOnly(event: any) {
     console.log(event.detail.checked);

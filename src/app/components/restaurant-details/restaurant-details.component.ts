@@ -8,9 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RestaurantDetailsComponent  implements OnInit {
 
   @Input() isLoading: boolean = false;
+  @Input() data: any = {};
   
   constructor() { }
 
   ngOnInit() {}
+
+  getCuisines(cuisines: any[]) {
+    return cuisines.join(', ');
+  }
 
 }

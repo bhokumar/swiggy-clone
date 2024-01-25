@@ -9,52 +9,7 @@
 
 <ion-content>
   <app-restaurant-details [isLoading]="isLoading"></app-restaurant-details>
-  <ion-grid *ngIf="data?.name" class="borderBottom">
-    <ion-row class="ion-padding-horizontal dashedBorderBottom">
-      <ion-label>
-        <h1>{{data.name}}</h1>
-        <ion-text *ngIf="data.cuisines"><p>{{getCuisines(data.cuisines)}}</p></ion-text>
-        <ion-text>
-          <p>{{data.address}}</p>
-        </ion-text>
-      </ion-label>
-    </ion-row>
-    <ion-row>
-      <ion-col size="4">
-        <ion-label class="ion-text-center">
-          <ion-text>
-            <p>
-              <ion-icon name="star" color="primary"></ion-icon>
-              {{data.rating}}
-            </p>
-          </ion-text>
-          
-        </ion-label>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label class="ion-text-center">
-          <ion-text>
-            <p>
-              {{data.delivery_time}} MINS
-            </p>
-          </ion-text>
-            <p>
-              Delivery Time
-            </p>
-        </ion-label>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label class="ion-text-center">
-          <ion-text>
-            <p>
-              ₹{{data?.price}} 
-            </p>
-          </ion-text>
-          <p>for two</p>
-        </ion-label>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
   <ion-row class="ion-padding veg borderBottomSmall">
     <ion-label class="vegLabel">
       <h4>VEG ONLY</h4>
