@@ -10,6 +10,7 @@ import { Preferences } from '@capacitor/preferences';
 export class CartPage implements OnInit {
 
   urlCheck: string = '';
+  instructions: string = '';
   url: any = [];
   model: CartData = {
     items: [],
@@ -44,6 +45,7 @@ export class CartPage implements OnInit {
     this.model.items = items;
     this.model.total = 0;
     this.model.totalPrice = 0;
+    this.model.deliveryCharge = 0;
     items.forEach(item => {
       this.model.totalPrice += item.quantity * item.price;
       this.model.totalItems += item.quantity;    
@@ -80,6 +82,16 @@ export class CartPage implements OnInit {
 
   getPreviousUrl() {
     return this.url.join('/');
+  }
+
+  quantityMinus(index: number) {
+    this.model.items[index].quantity -= 1;
+    this.calculate();
+  }
+
+  quantityPlus(index: number) {
+    this.model.items[index].quantity += 1;
+    this.calculate();
   }
 
 }
