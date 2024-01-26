@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { NavController } from '@ionic/angular';
 
@@ -12,6 +12,10 @@ export class ItemsPage implements OnInit {
 
   id: any;
   data: any = {};
+  model: any = {
+    icon: 'fast-food-outline',
+    title: 'No menu available'
+  };
   items: any[] = [];
   isLoading: boolean = false;
   veg: boolean = false;
@@ -126,7 +130,8 @@ export class ItemsPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
     ) {}
 
   ngOnInit() {
@@ -228,7 +233,7 @@ export class ItemsPage implements OnInit {
     console.log("View Cart");
     if (this.cartData.totalItems > 0) {
       await this.saveCart();
-      // this.navCtrl.navigateForward(['/tabs/cart']);
+      this.router.navigate([this.router.url + '/cart']);
     }
   }
 

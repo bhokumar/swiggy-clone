@@ -9,8 +9,8 @@
 
 <ion-content>
   <app-restaurant-details [isLoading]="isLoading" [data]="data"></app-restaurant-details>
-
-  <ion-row class="ion-padding veg borderBottomSmall">
+  <app-empty-screen [model]="model" *ngIf="!isLoading && categories?.length === 0"></app-empty-screen>
+  <ion-row class="ion-padding veg borderBottomSmall" *ngIf="!isLoading && categories?.length !== 0">
     <ion-label class="vegLabel">
       <h4>VEG ONLY</h4>
     </ion-label>
