@@ -75,13 +75,43 @@
   <ion-toolbar>
     <ion-row>
       <ion-col size="6">
-        <ion-button expand="block" fill="outline" color="success">
+        <ion-button expand="block" fill="outline" color="success" (click)="addAddress()">
           ADD ADDRESS
         </ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button expand="block" fill="outline" color="success">
+        <ion-button expand="block" color="success" (click)="changeAddress()">
           CHANGE ADDRESS
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-item lines="none">
+      <ion-button slot="end" size="small" fill="clear" (click)="changeAddress()"></ion-button>
+      <ion-icon slot="start" name="home-outline"></ion-icon>
+      <ion-label>
+        <h5>Deliver to home</h5>
+        <ion-text color="medium">
+          <p>Karol Bagh, New Delhi</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-row>
+      <ion-col size="6" class="ion-no-padding ion-no-border">
+        <ion-item lines="none" color="light" class="ion-no-padding">
+          <ion-label>
+            <h6>₹{{model.total}}</h6>
+            <ion-text color="secondary">
+              VIEW DETAILED BILL
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6" class="ion-text-center colStyle" (click)="makePayment()">
+        <ion-button color="white" fill="clear">
+          MAKE PAYMENT
         </ion-button>
       </ion-col>
     </ion-row>

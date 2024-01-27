@@ -85,8 +85,12 @@ export class CartPage implements OnInit {
   }
 
   quantityMinus(index: number) {
-    this.model.items[index].quantity -= 1;
-    this.calculate();
+    if (this.model.items[index].quantity > 0) {
+      this.model.items[index].quantity -= 1;
+    } else {
+      this.model.items[index].quantity = 0;
+    }
+    this.calculate();    
   }
 
   quantityPlus(index: number) {
@@ -94,6 +98,17 @@ export class CartPage implements OnInit {
     this.calculate();
   }
 
+  addAddress() {
+    console.log('Add Address');
+  }
+
+  changeAddress() {
+    console.log('Change Address');
+  }
+
+  makePayment() {
+    console.log('Place Order');
+  }
 }
 
 
