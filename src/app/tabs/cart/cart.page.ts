@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-cart',
@@ -9,6 +10,7 @@ import { Preferences } from '@capacitor/preferences';
 })
 export class CartPage implements OnInit {
 
+  @ViewChild(IonContent, { static: false }) content!: IonContent;
   urlCheck: string = '';
   instructions: string = '';
   url: any = [];
@@ -20,7 +22,7 @@ export class CartPage implements OnInit {
     totalPrice: 0,
     deliveryCharge: 0
   };
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkUrl();
@@ -98,6 +100,9 @@ export class CartPage implements OnInit {
     this.calculate();
   }
 
+  scrollToBottom() {
+    this.content.scrollToBottom(500);
+  }
   addAddress() {
     console.log('Add Address');
   }
