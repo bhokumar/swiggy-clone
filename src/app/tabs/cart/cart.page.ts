@@ -22,6 +22,7 @@ export class CartPage implements OnInit {
     totalPrice: 0,
     deliveryCharge: 0
   };
+  location: any = {};
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -36,6 +37,11 @@ export class CartPage implements OnInit {
 
   async getCartData() {
     let data: any = await this.getCart();
+    this.location = {
+      lat: 28.653831, 
+      lng: 77.188257, 
+      address: 'Karol Bagh, New Delhi'
+    };
     if (data.value) {
       this.model = JSON.parse(data.value);
       await this.calculate();
