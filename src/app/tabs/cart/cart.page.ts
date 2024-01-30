@@ -120,7 +120,7 @@ export class CartPage implements OnInit {
   makePayment() {
     try {
       const data = {
-        restaurant_id: this.model?.restaurant.id,
+        restaurant_id: this.model?.restaurant.uid,
         res: this.model?.restaurant,
         order: JSON.stringify(this.model?.items),
         time: moment().format('lll'),
@@ -131,6 +131,7 @@ export class CartPage implements OnInit {
         status: 'Created',
         paid: 'COD'
       };
+      console.log('Order:', data);
     } catch (error) {
       console.log('Error:', error);
      }
