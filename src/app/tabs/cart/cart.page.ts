@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { IonContent } from '@ionic/angular';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
@@ -118,7 +118,22 @@ export class CartPage implements OnInit {
   }
 
   makePayment() {
-    console.log('Place Order');
+    try {
+      const data = {
+        restaurant_id: this.model?.restaurant.id,
+        res: this.model?.restaurant,
+        order: JSON.stringify(this.model?.items),
+        time: moment().format('lll'),
+        address: this.location,
+        total: this.model?.totalPrice,
+        grandTotal: this.model?.total,
+        deleiveryCharge: this.model?.deliveryCharge,
+        status: 'Created',
+        paid: 'COD'
+      };
+    } catch (error) {
+      console.log('Error:', error);
+     }
   }
 }
 
